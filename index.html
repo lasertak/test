@@ -22,6 +22,15 @@
             <p>This is a simple website created as an example.</p>
             <button id="clickMe">Click me</button>
         </section>
+
+        <section class="calculator">
+            <h2>Staking Profit Calculator</h2>
+            <input type="number" id="amount" placeholder="Amount" min="0">
+            <input type="number" id="rate" placeholder="Annual % Rate" min="0" step="0.1">
+            <input type="number" id="months" placeholder="Months" min="1">
+            <button id="calcBtn">Calculate</button>
+            <div id="result" class="result"></div>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
