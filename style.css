@@ -4,6 +4,12 @@ body {
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    animation: fadeInBody 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 header {
@@ -11,21 +17,100 @@ header {
     color: white;
     padding: 2rem 1rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: slideDownHeader 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDownHeader {
+    from { transform: translateY(-60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+header h1 {
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: floatTitle 2.5s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes floatTitle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 1rem 0 0 0;
+    animation: fadeInNav 1.5s 0.5s backwards;
+}
+
+@keyframes fadeInNav {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 nav li {
     display: inline-block;
     margin: 0 1rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+}
+
+nav li:hover {
+    transform: translateY(-6px) scale(1.08) rotate(-2deg);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #007aff;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+
+nav a:hover {
+    color: #007aff;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 main {
     padding: 2rem;
+    animation: fadeInMain 1.5s 0.7s backwards;
+}
+
+@keyframes fadeInMain {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    animation: fadeInSection 1.7s 1s backwards;
+}
+
+@keyframes fadeInSection {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 button {
